@@ -1,6 +1,8 @@
 package com.sanjeev;
 
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 /**
  * Created by Sanjeev Guglani
@@ -27,6 +29,22 @@ public class SubArraySumTo0 {
           }
           return false;
       }
+
+
+    //Time O(n) //space O(n)
+    public static boolean subArrayTo02(int arr[]){
+        int sum=0;
+        Set<Integer> set = new HashSet<Integer>();
+        for(int i=0;i<arr.length;i++){
+            sum+=arr[i];
+            if(sum==0 || arr[i]==0 || set.contains(sum)) {
+                return true;
+            }else {
+                set.add(sum);
+            }
+        }
+        return false;
+    }
 
     public static void main (String[] args) {
         Scanner cin = new Scanner(System.in);
