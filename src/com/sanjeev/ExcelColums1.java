@@ -22,13 +22,25 @@ public class ExcelColums1 {
         return str;
     }
 
+    public static int printColumnNumber(String s){
+        int sum=0; int pow=1;
+        for(int i=s.length()-1;i>=0;i--){
+            sum+= pow*(s.charAt(i)-'A'+1);
+            pow =pow*26;
+        }
+        return sum;
+    }
+
+
+
     public static void main(String[] args) {
         Scanner cin = new Scanner(System.in);
         int test = cin.nextInt();
-        int  sum;
+        String  str;
+        cin.skip("\\s+");
         for (int l = 1; l <= test; l++) {
-            sum = cin.nextInt();
-            System.out.println(printColumnName(sum));
+            str = cin.nextLine();
+            System.out.println(printColumnNumber(str));
         }
     }
 }
