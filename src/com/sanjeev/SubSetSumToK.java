@@ -13,14 +13,26 @@ public class SubSetSumToK {
     }
 
     public static int subsetSumToK(int arr[],int k,int sum){
-        if(sum==0){
+        if(k==arr.length){
+            if(sum==0){
+                return 1;
+            }
+            return 0;
+        }else if(sum<0){
+            return 0;
+        }else{
+            return subsetSumToK(arr,k+1,sum-arr[k])+
+                    subsetSumToK(arr,k+1,sum);
+        }
+        // fail for  1 2 0 3 with sum 3 think well
+       /* if(sum==0){
             return 1;
         }else if(sum<0 || k==arr.length){
             return 0;
         }else{
             return subsetSumToK(arr,k+1,sum-arr[k])+
                     subsetSumToK(arr,k+1,sum);
-        }
+        }*/
     }
 
 
